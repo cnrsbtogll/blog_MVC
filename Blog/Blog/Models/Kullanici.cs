@@ -19,6 +19,8 @@ namespace Blog.Models
         public Nullable<bool> Cinsiyet { get; set; }
         public Nullable<System.DateTime> DogumTarihi { get; set; }
         public System.DateTime KayitTarihi { get; set; }
+        public Nullable<int> RolID { get; set; }
+        public virtual Rol Rol { get; set; }
         public virtual ICollection<Yazar> Yazars { get; set; }
     }
 }

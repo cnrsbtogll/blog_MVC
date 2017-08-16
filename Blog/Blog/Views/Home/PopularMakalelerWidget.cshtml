@@ -5,9 +5,9 @@
         @foreach (Blog.Models.Makale makale in Model)
         {
             <li>
-                <div class="icon-overlay"> <a href="blog-post.html"><img src="style/images/art/a1.jpg" alt="" /> </a> </div>
+                <div class="icon-overlay"> <a href="/Makale/Detay/@makale.MakaleId"><img src="@makale.Resim.KucukBoyut" alt="" /> </a> </div>
                 <div class="meta">
-                    <h5><a href="#">@makale.Baslik</a></h5>
+                    <h5><a href="/Makale/Detay/@makale.MakaleId">@makale.Baslik</a></h5>
                     <em>@makale.EklenmeTarihi.ToShortDateString()<span class="comments"><a href="#">@makale.Yorums.Count <i class="icon-chat-1"></i></a></span></em>
                 </div>
             </li>

@@ -8,6 +8,7 @@ namespace Blog.Models
         public Resim()
         {
             this.Makales = new List<Makale>();
+            this.Yazars = new List<Yazar>();
         }
 
         public int ResimId { get; set; }
@@ -18,5 +19,6 @@ namespace Blog.Models
         public Nullable<int> MakaleID { get; set; }
         public virtual ICollection<Makale> Makales { get; set; }
         public virtual Makale Makale { get; set; }
+        public virtual ICollection<Yazar> Yazars { get; set; }
     }
 }

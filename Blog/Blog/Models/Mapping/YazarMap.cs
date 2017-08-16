@@ -19,6 +19,12 @@ namespace Blog.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.KullaniciAdi)
+                .HasMaxLength(50);
+
+            this.Property(t => t.Parola)
+                .HasMaxLength(50);
+
             this.Property(t => t.MailAdres)
                 .HasMaxLength(50);
 
@@ -27,9 +33,23 @@ namespace Blog.Models.Mapping
             this.Property(t => t.YazarId).HasColumnName("YazarId");
             this.Property(t => t.Adi).HasColumnName("Adi");
             this.Property(t => t.Soyadi).HasColumnName("Soyadi");
+            this.Property(t => t.KullaniciAdi).HasColumnName("KullaniciAdi");
+            this.Property(t => t.Parola).HasColumnName("Parola");
             this.Property(t => t.MailAdres).HasColumnName("MailAdres");
             this.Property(t => t.Aciklama).HasColumnName("Aciklama");
             this.Property(t => t.Cinsiyet).HasColumnName("Cinsiyet");
+            this.Property(t => t.ResimID).HasColumnName("ResimID");
+            this.Property(t => t.RolID).HasColumnName("RolID");
+            this.Property(t => t.Onaylandi).HasColumnName("Onaylandi");
+
+            // Relationships
+            this.HasOptional(t => t.Resim)
+                .WithMany(t => t.Yazars)
+                .HasForeignKey(d => d.ResimID);
+            this.HasOptional(t => t.Rol)
+                .WithMany(t => t.Yazars)
+                .HasForeignKey(d => d.RolID);
+
         }
     }
 }

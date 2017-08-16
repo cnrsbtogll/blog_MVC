@@ -42,6 +42,7 @@ namespace Blog.Models.Mapping
             this.Property(t => t.Cinsiyet).HasColumnName("Cinsiyet");
             this.Property(t => t.DogumTarihi).HasColumnName("DogumTarihi");
             this.Property(t => t.KayitTarihi).HasColumnName("KayitTarihi");
+            this.Property(t => t.RolID).HasColumnName("RolID");
 
             // Relationships
             this.HasMany(t => t.Yazars)
@@ -53,6 +54,9 @@ namespace Blog.Models.Mapping
                         m.MapRightKey("YazarID");
                     });
 
+            this.HasOptional(t => t.Rol)
+                .WithMany(t => t.Kullanicis)
+                .HasForeignKey(d => d.RolID);
 
         }
     }
