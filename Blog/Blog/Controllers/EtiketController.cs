@@ -11,13 +11,18 @@ namespace Blog.Controllers
     {
         // GET: Etiket
         blog_iozContext context = new blog_iozContext();
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            return View(id);
         }
         public PartialViewResult EtiketlerWidget()
         {
             return PartialView(context.Etikets.ToList());
+        }
+        public ActionResult MakaleListele(int id)
+        {
+            var data = context.Makales.Where(x => x.Etikets.Any(y => y.EtiketId == id)).ToList();
+            return View("MakaleListeleWidget", data);
         }
     }
 }

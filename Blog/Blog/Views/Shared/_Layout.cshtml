@@ -23,7 +23,7 @@
           <script src="/Content/style/js/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
           <![endif]-->
-    @RenderSection("head",false)
+    @RenderSection("head", false)
 </head>
 <body>
     <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
@@ -112,17 +112,27 @@
                 </div>
                 <!-- /.content -->
                 <aside class="col-sm-4 sidebar lp30">
-                    @RenderSection("PopulerMakaleler",false)
+                    @{
+                        Html.RenderAction("PopulerMakalelerWidget", "Home");
+                    }
                     <!-- /.widget -->
-                    @RenderSection("SiteHakkinda",false)
+                    @{
+                        Html.RenderPartial("SiteHakkinda");
+                    }
                     <!-- /.widget -->
-                    @RenderSection("Arama",false)
+                    @{
+                        Html.RenderPartial("Arama");
+                    }
                     <!-- /.widget -->
                     
                     <!-- /.widget -->
-                    @RenderSection("Kategoriler",false)
+                    @{
+                        Html.RenderAction("KategoriWidget", "Kategori");
+                    }
                     <!-- /.widget -->
-                    @RenderSection("Etiketler",false)
+                    @{
+                        Html.RenderAction("EtiketlerWidget", "Etiket");
+                    }
                     <!-- /.widget -->
                 </aside>
                 <!-- /.col-sm-4 .sidebar -->

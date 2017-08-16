@@ -1,15 +1,17 @@
-﻿
+﻿@{ 
+    Layout = null;
+}
 @model IEnumerable<Blog.Models.Makale>
 
 @helper IcerikKisalt(string icerik)
 {
 if (icerik.Length > 300)
 {
-        @icerik.Substring(0, 300)
+        icerik.Substring(0, 300);
 }
 else
 {
-        @icerik
+        @icerik;
 }
 }
 <div class="blog-posts col-blog">

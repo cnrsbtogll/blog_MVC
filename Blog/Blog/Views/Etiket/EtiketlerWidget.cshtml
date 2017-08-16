@@ -5,7 +5,7 @@
     <ul class="tag-list">
         @foreach (Blog.Models.Etiket etiket in Model)
         {
-            <li><a href="#">@etiket.Adi (@etiket.Makales.Count)</a></li>
+            <li><a href="/Etiket/Index/@etiket.EtiketId">@etiket.Adi (@etiket.Makales.Count)</a></li>
         }
         
     </ul>

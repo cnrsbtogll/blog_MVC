@@ -133,6 +133,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\blog-post.html" />
     <Content Include="Content\blog.html" />
     <Content Include="Content\style.css" />
     <Content Include="Content\style\css\blank.html" />
@@ -331,7 +332,9 @@
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Classes\Settings.cs" />
@@ -339,6 +342,7 @@
     <Compile Include="Controllers\EtiketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\MakaleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -400,12 +404,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_viewstart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\MakaleListeleWidget.cshtml" />
     <Content Include="Views\Kategori\KategoriWidget.cshtml" />
     <Content Include="Views\Etiket\EtiketlerWidget.cshtml" />
-    <Content Include="Views\Home\SiteHakkinda.cshtml" />
+    <Content Include="Views\Shared\SiteHakkinda.cshtml" />
     <Content Include="Views\Home\PopularMakalelerWidget.cshtml" />
     <Content Include="Views\Shared\MakaleListeleWidget.cshtml" />
+    <Content Include="Views\Kategori\Index.cshtml" />
+    <Content Include="Views\Shared\Arama.cshtml" />
+    <Content Include="Views\Etiket\Index.cshtml" />
+    <Content Include="Views\Makale\Detay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -430,7 +437,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50529</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

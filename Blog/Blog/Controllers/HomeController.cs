@@ -14,11 +14,12 @@ namespace Blog.Controllers
         blog_iozContext context = new blog_iozContext();
         public ActionResult Index()
         {
+
             return View();
         }
-        public PartialViewResult MakaleListeleWidget()
+        public PartialViewResult MakaleListele()
         {
-            return PartialView(context.Makales.ToList());
+            return PartialView("MakaleListeleWidget",context.Makales.ToList());
         }
         public PartialViewResult PopularMakalelerWidget()
         {

@@ -5,7 +5,7 @@
     <ul class="circled">
         @foreach (Blog.Models.Kategori kategori in Model)
         {
-            <li><a href="#">@kategori.Adi (@kategori.Makales.Count)</a></li>
+            <li><a href="/Kategori/Index/@kategori.KategoriId">@kategori.Adi (@kategori.Makales.Count)</a></li>
         }
     </ul>
 </div>

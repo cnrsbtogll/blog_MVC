@@ -11,13 +11,18 @@ namespace Blog.Controllers
     {
         // GET: Kategori
         blog_iozContext context = new blog_iozContext();
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
-            return View();
+            return View(id);
         }
         public PartialViewResult KategoriWidget()
         {
             return PartialView(context.Kategoris.ToList());
+        }
+        public ActionResult MakaleListele(int id)
+        {
+            var data = context.Makales.Where(x=>x.KategoriID==id).ToList();
+            return View("MakaleListeleWidget", data);
         }
     }
 }
