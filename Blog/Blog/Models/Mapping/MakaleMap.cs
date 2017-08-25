@@ -34,12 +34,12 @@ namespace Blog.Models.Mapping
             this.HasRequired(t => t.Kategori)
                 .WithMany(t => t.Makales)
                 .HasForeignKey(d => d.KategoriID);
+            this.HasRequired(t => t.Kullanici)
+                .WithMany(t => t.Makales)
+                .HasForeignKey(d => d.YazarID);
             this.HasOptional(t => t.Resim)
                 .WithMany(t => t.Makales)
                 .HasForeignKey(d => d.ResimID);
-            this.HasRequired(t => t.Yazar)
-                .WithMany(t => t.Makales)
-                .HasForeignKey(d => d.YazarID);
 
         }
     }

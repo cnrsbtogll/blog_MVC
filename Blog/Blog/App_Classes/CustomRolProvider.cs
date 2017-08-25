@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,8 +7,10 @@ using System.Web.Security;
 
 namespace Blog.App_Classes
 {
+    using Models;
     public class CustomRolProvider : RoleProvider
     {
+        blog_iozContext context = new blog_iozContext();
         public override string ApplicationName
         {
             get
@@ -48,7 +51,15 @@ namespace Blog.App_Classes
 
         public override string[] GetRolesForUser(string username)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(username))
+            {
+                Kullanici kl = context.Kullanicis.FirstOrDefault(x => x.KullaniciAdi == username);
+                if (kl != null)
+                {
+                    return kl.KullaniciRols==null?new string[] {}:kl.KullaniciRols.Select(x => x.Rol).Select(x => x.RolAdi).ToArray();
+                }
+            }
+            return new string[] { };
         }
 
         public override string[] GetUsersInRole(string roleName)
@@ -71,4 +82,5 @@ namespace Blog.App_Classes
             throw new NotImplementedException();
         }
     }
+
 }

@@ -2,6 +2,29 @@
 @{
     ViewBag.Title = Model.Baslik;
 }
+@section head{
+    <script src="~/Content/style/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function myfunction() {
+            function goruntulendi(id) {
+                var link = "/Makale/Goruntulendi/" + id;
+                $.ajax({
+                    type: "GET",
+                    url:link;
+                success:function myfunction() {
+    
+                }
+                });
+            }
+        });
+    </script>
+    
+    }
+
+<script>
+
+</script>
+
 @model Blog.Models.Makale
 
 <div class="blog-posts classic-blog single">
@@ -16,10 +39,17 @@
         <div class="post-content">
             <p>@Model.Icerik</p>
             <div class="meta tags">
-            @foreach (Blog.Models.Etiket etk in Model.Etikets)
-            {
-                <a href="/Etiket/Index/@etk.EtiketId">@etk.Adi</a>
-            }            
+                @if (Model.Etikets.Count > 0)
+                {
+                        @foreach (Blog.Models.Etiket etk in Model.Etikets)
+                            {
+                        <a href="/Etiket/Index/@etk.EtiketId">@etk.Adi</a>
+                                }
+                            }
+                
+
+               
+                           
            </div>
             <div class="click-share">
                 <ul>
@@ -38,10 +68,10 @@
 <!-- /.blog-posts -->
 
 <div class="about-author dark-wrapper">
-    <div class="author-image"> <img alt="" src="@Model.Yazar.Resim.OrtaBoyut" /> </div>
+    <div class="author-image"> <img alt="" src="@Model.Kullanici.Resim.OrtaBoyut" /> </div>
     <div class="author-details">
-        <h3>@Model.Yazar.Adi @Model.Yazar.Soyadi Hakkında</h3>
-        <p>@Model.Yazar.Aciklama</p>
+        <h3>@Model.Kullanici.Adi @Model.Kullanici.Soyadi Hakkında</h3>
+        <p>@Model.Kullanici.Aciklama</p>
         <ul class="social">
             <li><a href="#"><i class="icon-s-twitter"></i></a></li>
             <li><a href="#"><i class="icon-s-facebook"></i></a></li>

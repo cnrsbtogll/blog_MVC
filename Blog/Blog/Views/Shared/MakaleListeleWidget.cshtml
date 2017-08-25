@@ -1,6 +1,25 @@
 ﻿@{ 
     Layout = null;
 }
+<script src="~/Content/style/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function myfunction() {
+        $("a.begen").click(function myfunction() {
+            var id = $(this).data("id");
+           
+            var link = "/Makale/Begen/" + id;
+            $.ajax({
+                type: "GET",
+                url: link,
+                success: function myfunction(result) 
+            {
+                    $("a.begen").html(result);
+            }
+            });
+        });
+    });
+</script>
+
 @model IEnumerable<Blog.Models.Makale>
 
 @helper IcerikKisalt(string icerik)
@@ -29,7 +48,23 @@ else
                 </figure>
             </div>
             <div class="col-sm-8 post-content">
-                <div class="meta"><span class="date">@mkl.EklenmeTarihi.ToShortDateString()</span><span class="comments"><a href="#">@mkl.Yorums.Count <i class="icon-chat-1"></i></a></span></div>
+                <div class="meta"><span class="date">@mkl.EklenmeTarihi.ToShortDateString()</span>
+                <span class="comments"><a href="#">@mkl.Yorums.Count <i class="icon-chat-1"></i></a></span>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span>
+                        <a class="begen" href="javascript:void(0)" data-id="@mkl.MakaleId">
+                            @mkl.BegeniSayisi
+                        </a>
+                        <img src="/Content/images/like.png" />
+                    </span>
+                }
+                
+                <span><a href="#">
+    @mkl.GorontulenmeSayisi
+    <img src="/Content/images/view.png" />
+</a></span>
+                </div>
                 <h2 class="post-title"><a href="/Makale/Detay/@mkl.MakaleId">@mkl.Baslik</a></h2>
                 <p>@IcerikKisalt(mkl.Icerik)</p>
             </div>

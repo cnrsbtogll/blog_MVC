@@ -136,6 +136,8 @@
     <Content Include="Content\blog-post.html" />
     <Content Include="Content\blog.html" />
     <Content Include="Content\images\defaultUser.png" />
+    <Content Include="Content\images\like.png" />
+    <Content Include="Content\images\view.png" />
     <Content Include="Content\MakaleResim\BuyukBoyut\csharp.jpg" />
     <Content Include="Content\MakaleResim\KucukBoyut\c.png" />
     <Content Include="Content\MakaleResim\OrtaBoyut\cOrta.jpg" />
@@ -345,11 +347,13 @@
     <Compile Include="App_Classes\CustomRolProvider.cs" />
     <Compile Include="App_Classes\Settings.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EtiketController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\KullaniciController.cs" />
     <Compile Include="Controllers\MakaleController.cs" />
+    <Compile Include="Controllers\YazarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -357,20 +361,20 @@
     <Compile Include="Models\Etiket.cs" />
     <Compile Include="Models\Kategori.cs" />
     <Compile Include="Models\Kullanici.cs" />
+    <Compile Include="Models\KullaniciRol.cs" />
     <Compile Include="Models\Makale.cs" />
     <Compile Include="Models\Mapping\EtiketMap.cs" />
     <Compile Include="Models\Mapping\KategoriMap.cs" />
     <Compile Include="Models\Mapping\KullaniciMap.cs" />
+    <Compile Include="Models\Mapping\KullaniciRolMap.cs" />
     <Compile Include="Models\Mapping\MakaleMap.cs" />
     <Compile Include="Models\Mapping\ResimMap.cs" />
     <Compile Include="Models\Mapping\RolMap.cs" />
     <Compile Include="Models\Mapping\sysdiagramMap.cs" />
-    <Compile Include="Models\Mapping\YazarMap.cs" />
     <Compile Include="Models\Mapping\YorumMap.cs" />
     <Compile Include="Models\Resim.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\sysdiagram.cs" />
-    <Compile Include="Models\Yazar.cs" />
     <Compile Include="Models\Yorum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -423,6 +427,11 @@
     <Content Include="Views\Etiket\Index.cshtml" />
     <Content Include="Views\Makale\Detay.cshtml" />
     <Content Include="Views\Kullanici\GirisYap.cshtml" />
+    <Content Include="Views\Makale\MakaleEkle.cshtml" />
+    <Content Include="Views\Kullanici\UyeOl.cshtml" />
+    <Content Include="Views\Yazar\YazarOl.cshtml" />
+    <Content Include="Views\Admin\YazarOnaylari.cshtml" />
+    <Content Include="Views\Makale\Ekle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

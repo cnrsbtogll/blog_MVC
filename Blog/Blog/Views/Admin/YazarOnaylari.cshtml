@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "YazarOnaylari";
+}
+
+@model IEnumerable<Blog.Models.Kullanici>
+<table>
+    @foreach (Blog.Models.Kullanici item in Model)
+    {
+        <tr>
+            <td>
+                @item.Adi @item.Soyadi
+            </td>
+            <td><a href="/Admin/OnayVer/@item.KullaniciId">Onay Ver </a></td>
+        </tr>
+
+    }
+
+</table>

@@ -38,25 +38,29 @@ namespace Blog.Models.Mapping
             this.Property(t => t.Soyadi).HasColumnName("Soyadi");
             this.Property(t => t.KullaniciAdi).HasColumnName("KullaniciAdi");
             this.Property(t => t.Parola).HasColumnName("Parola");
+            this.Property(t => t.Aciklama).HasColumnName("Aciklama");
             this.Property(t => t.MailAdres).HasColumnName("MailAdres");
             this.Property(t => t.Cinsiyet).HasColumnName("Cinsiyet");
             this.Property(t => t.DogumTarihi).HasColumnName("DogumTarihi");
             this.Property(t => t.KayitTarihi).HasColumnName("KayitTarihi");
-            this.Property(t => t.RolID).HasColumnName("RolID");
+            this.Property(t => t.ResimID).HasColumnName("ResimID");
+            this.Property(t => t.Yazar).HasColumnName("Yazar");
+            this.Property(t => t.Onaylandi).HasColumnName("Onaylandi");
+            this.Property(t => t.Aktif).HasColumnName("Aktif");
 
             // Relationships
-            this.HasMany(t => t.Yazars)
+            this.HasMany(t => t.Kullanici1)
                 .WithMany(t => t.Kullanicis)
                 .Map(m =>
                     {
                         m.ToTable("YazarTakip");
-                        m.MapLeftKey("KullaniciID");
-                        m.MapRightKey("YazarID");
+                        m.MapLeftKey("YazarID");
+                        m.MapRightKey("KullaniciID");
                     });
 
-            this.HasOptional(t => t.Rol)
+            this.HasOptional(t => t.Resim)
                 .WithMany(t => t.Kullanicis)
-                .HasForeignKey(d => d.RolID);
+                .HasForeignKey(d => d.ResimID);
 
         }
     }

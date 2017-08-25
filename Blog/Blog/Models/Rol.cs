@@ -7,13 +7,11 @@ namespace Blog.Models
     {
         public Rol()
         {
-            this.Kullanicis = new List<Kullanici>();
-            this.Yazars = new List<Yazar>();
+            this.KullaniciRols = new List<KullaniciRol>();
         }
 
         public int RolId { get; set; }
         public string RolAdi { get; set; }
-        public virtual ICollection<Kullanici> Kullanicis { get; set; }
-        public virtual ICollection<Yazar> Yazars { get; set; }
+        public virtual ICollection<KullaniciRol> KullaniciRols { get; set; }
     }
 }

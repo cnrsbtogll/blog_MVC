@@ -22,8 +22,8 @@ namespace Blog.Models
         public int YazarID { get; set; }
         public Nullable<int> ResimID { get; set; }
         public virtual Kategori Kategori { get; set; }
+        public virtual Kullanici Kullanici { get; set; }
         public virtual Resim Resim { get; set; }
-        public virtual Yazar Yazar { get; set; }
         public virtual ICollection<Resim> Resims { get; set; }
         public virtual ICollection<Yorum> Yorums { get; set; }
         public virtual ICollection<Etiket> Etikets { get; set; }
